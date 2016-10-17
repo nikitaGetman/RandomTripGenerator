@@ -1,0 +1,8 @@
+body {background-color: #BDBDBD;}
+.active{display: block !important;}
+.content div{display:none; text-align: center;}
+.first{text-align: center; margin-top: 10%;}
+pre{color: #000000; text-align: center; font-family:'Oswald'; font-size:30px;}
+.Rand{border:none; border-radius: 8px; background-color: #333; box-shadow: 0 0 20px #333; color: white; font-size:30px; outline: none;}
+.Rand:active{outline: none; box-shadow: none;}
+select{border:none; border-radius: 8px; background-color: #333; box-shadow: 0 0 20px #333; color: white; font-size:30px; outline: none; margin-top: 20%;}
