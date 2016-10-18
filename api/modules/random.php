@@ -27,10 +27,9 @@ function get(){
 
 
 		// Get amount
-	$all = pdo_query('SELECT', 'cities', '1', $params, null, 0, 0, "SELECT COUNT(*) FROM `cities`");
-	//print_r($all);
+	$all = pdo_query('SELECT_COUNT', 'cities', '*', $params);
 	$all = $all[0]['COUNT(*)'];	
-	
+	print_r($all);
 
 	$city_id = rand(1, $all);
 

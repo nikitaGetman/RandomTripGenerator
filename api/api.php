@@ -65,9 +65,10 @@ function pdo_query($type, $table_name, $fields, $params, $custom_where = null, $
 					if($params != '1'){
 						foreach ($params as $key => $value) if(!in_array($key, $whitelist[$table_name])) error(1);
 					}
-					$query = 'SELECT ';
+
+					$query = "SELECT ";
 					
-					if($type == 'SELECT_COUNT') $query .= "COUNT(*)";
+					if($type == 'SELECT_COUNT') $query .= "COUNT(*)" ;
 					elseif($fields === '*') $query .= "*";
 					else{
 						foreach ($fields as $key) $query .= "`$key`,";
@@ -76,7 +77,7 @@ function pdo_query($type, $table_name, $fields, $params, $custom_where = null, $
 
 					$query .= " FROM `$table_name` WHERE ";
 					if($custom_where) $query .= $custom_where;
-					elseif ($params === '1') $query .= '1';
+					elseif ($params === '1' || $params === null) $query .= '1';
 					else{  
 						foreach ($params as $key => $value){	
 							if($key == 'category') 	{$query .= "`$key` LIKE :$key"; $params[$key] = '%'.$value.'%';}
@@ -155,7 +156,7 @@ function pdo_query($type, $table_name, $fields, $params, $custom_where = null, $
 			default: error(1);
 		}
 
-		// echo $query."<br>";
+		echo $query."<br>";
 		//print_r($params);
 
 		$dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=".DB_CHARSET;
@@ -169,10 +170,10 @@ function pdo_query($type, $table_name, $fields, $params, $custom_where = null, $
 		if($params !== '1') $stmt->execute($params);
 		else $stmt->execute();
 
-		//print_r($stmt->fetchAll());
+		// print_r($stmt->fetchAll());
 		$er = $stmt->errorInfo();
 		if($er[1] != null) return false;
-		elseif($type == 'SELECT') return $stmt->fetchAll();
+		elseif($type == 'SELECT' || $type == 'SELECT_COUNT') return $stmt->fetchAll();
 		else return true;
 }
 

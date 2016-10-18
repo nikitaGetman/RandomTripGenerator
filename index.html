@@ -1,39 +1,74 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	<title>Hakaton</title>
-	<script src="scripts/jquery-3.1.1.min.js"></script>
+	<title>Random</title>
+	<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"/>
+	<link rel="stylesheet" href="css/vendor.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="scripts/vendor.js"></script>
+	
+
+	<script src="scripts/main.js"></script>
+	
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
 
 </head>
 <body>
-	<div class="content">
-		<div class="first active">
-			<pre>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
-			</pre>
-		<input class="Rand start-button" type="button" value="Give me my place!">
+	
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<div class="navbar-brand">
+				Trip Generator
+			</div>
 		</div>
-		<div class="second">
-			<select>
-				<option>Select a place</option>
-				<option>Abroad</option>
-				<option>In the country</option>
-			</select>
-			<input class="Rand random-button" type="button" value="Ok">
-		</div>
-		<div class="last">
-			<p class="Answer">
-				
-			</p>
+		<div class="navbar-collapse collapse">
+			<ul class="navbar-nav menu-navigation">
+				<li class="nav-item" data-content="settings"><i class="fa fa-info"></i></li>
+			</ul>
 		</div>
 	</div>
 
-	<script src="scripts/main.js"></script>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-push-1 content-block">
+				<div class="row">
+					<div class="col-md-8 map"></div>
+					<div class="col-md-4 content">
+						<div class="bar-header">
+							<button type="button" class="left-arrow disabled"><i class="fa fa-angle-left"></i></button>
+							<p class="city-name" align="center">Moscow</p>
+							<button type="button" class="right-arrow"><i class="fa fa-angle-right"></i></button>
+						</div>
+						<div class="bar-body">
+							<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis blanditiis sed sunt consequatur odit mollitia itaque suscipit vel ullam nihil vitae, veniam accusantium, laudantium labore nostrum quaerat sit nulla asperiores!</p>
+
+							<p class="cost">Cost for night: <span class="cost-amount">700$</span></p>
+						</div>
+						<div class="bar-footer">
+							<button type="button" class="btn-success text-center generate">Generate Trip</button>
+							<button type="button" class="btn-info settings" data-toggle="popover" data-placement="top" title="Advanced settings" data-content="<h1>Form</h1>" data-trigger="click"><i class="fa fa-cog"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+<script>
+	$(function(){
+		$('[data-toggle="popover"]').popover({html: true});
+	});
+</script>
+
 </body>
 </html>
